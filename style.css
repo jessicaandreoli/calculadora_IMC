@@ -1,0 +1,207 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  font-size: 62.5%;
+  --bg-body: #040924;
+  --bg-header: #F03E3E;
+  --bg-input: #DCE2E9;
+  --tt-color-header: #FFFFFF;
+  --tt-color-legend: #0C3440;
+  --tt-color-label: #00453A;
+  --tt-color-input: rgba(73, 80, 87, 0.5);
+  --tt-color-input-ph: rgba(93, 96, 100, 0.5);
+  --tt-color-input-act: #212529;
+  --bg-form: #FFFFFF;
+  --bg-button: #02799D; 
+  --bg-button-act: #056d8d;
+  --bor-input: rgba(73, 80, 87, 0.3);
+}
+
+body {
+  font-size: 1.6rem;
+  font-family: 'Roboto', sans-serif;
+  background: var(--bg-body);
+}
+
+.alert.open {
+  visibility: visible;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.alert{
+  background: var(--bg-header);
+  height: 3.6rem;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  visibility: hidden;
+  opacity: 0;
+  transform: translateY(-30px);
+  transition: transform .5s;
+}
+
+p{
+  text-align: center;
+  padding-top: 0.8rem;
+  font-weight: 700;
+  font-size: 1.6rem;
+  line-height: 2rem;
+  color: var(--tt-color-header);
+}
+
+.card {
+  max-width: 42.8rem;
+  padding: 4.8rem 6.4rem 6.4rem;
+  background: var(--bg-form);
+  margin-inline: auto;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 0.6rem;
+}
+
+.container {
+  display: grid;
+  height: 100vh;
+  border: none;
+  place-content: center;
+}
+
+form {
+  border: none;
+  width: 30rem;
+  margin: auto;
+}
+
+form h1 {
+  margin-bottom: 3.2rem;
+}
+
+.title {
+  font-weight: 700;
+  color: var(--tt-color-legend);
+  font-size: 3.2rem;
+  line-height: 4rem;
+}
+
+.input-wraper {
+  display: flex;
+  flex-direction: column;
+}
+
+.input-wraper + .input-wraper {
+  margin-top: 1.6rem;
+}
+
+label {
+  margin-bottom: 0.8rem;
+  font-weight: 400;
+  font-size: 1.4rem;
+  line-height: 1.8rem;
+  color: var(--tt-color-label);
+}
+
+input::-webkit-inner-spin-button { 
+  -webkit-appearance: none;
+}
+
+input {
+  /*poderia usar outline que tb remove o input
+  selecionado do navegador*/
+  all: unset;
+  appearance: none;
+  font-size: 1.6rem;
+  line-height: 2rem;
+  background: var(--bg-input);
+  border: 2px solid var(--bor-input);
+  border-radius: 4px;
+  padding: 1.6rem;
+}
+
+input:focus {
+  border: 2px solid var(--bg-button);
+}
+
+input::placeholder {
+  color: var(--tt-color-input-ph);
+}
+
+form button {
+  display: flex;
+  gap: 0.8rem;
+  align-items: center;
+  justify-content: center;
+  margin-top: 3.2rem;
+  width: 100%;
+  height: 5.2rem;
+  border-radius: 4px;
+  background: var(--bg-button);
+  padding: 1.6rem;
+  border: none;
+  color: var(--tt-color-header);
+  font-size: 1.6rem;
+  transition: all .3s;
+}
+
+form button:active {
+  transform: scale(1.02);
+  cursor: pointer;
+}  
+
+form button:hover {
+  background: var(--bg-button-act);
+  cursor: pointer;
+}
+
+.modal-wrapper.open{
+  opacity: 1;
+  visibility: visible;
+}
+
+.modal-wrapper {
+  position: absolute;
+  /*top: 0;
+  /*bottom:0;
+  /*right:0;
+  /*left: 0; é a mesma coisa que:*/
+  inset: 0;
+  background:rgba(0, 0, 0, 0.7); ;  
+  display: grid;
+  height: 100vh;
+  place-content: center;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.modal {
+  position: relative;
+}
+
+.modal button {
+  background: none;
+  border: none;
+  position: absolute;
+  top: 1.6rem;
+  right: 1.6rem;
+  cursor: pointer;
+  transition: transform .3s;
+}
+
+.modal button:hover {
+  transform: scale(1.1);
+}
+
+@media (max-width: 600px) {
+  .container {
+    width: 80%;
+    padding: 2rem;
+  }
+
+  form {
+    width: 70%;
+  }
+}
